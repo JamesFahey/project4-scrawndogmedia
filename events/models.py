@@ -7,6 +7,7 @@ from cloudinary.models import CloudinaryField
 STATUS = ((0, "Requested"), (1, "Confirmed"))
 
 class Event(models.Model):
+    """A class to represent events model."""
     EventType = models.TextChoices('EventType', 'WEDDING CHRISTENING OTHER')
     name = models.ForeignKey(User, on_delete=models.CASCADE)
     event_type = models.CharField(blank=True, choices=EventType.choices, max_length=20)
@@ -18,5 +19,5 @@ class Event(models.Model):
     class Meta:
         ordering = ['event_date']
 
-    def __str__(self):
-        return self.event_type
+    def get_username(self):
+        return self.name
