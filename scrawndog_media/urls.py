@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from events.views import home
+from events import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", home, name="home"),
     path('summernote/', include('django_summernote.urls')),
+    path('event_page/', views.EventList.as_view(), name='Event Page')
 ]
