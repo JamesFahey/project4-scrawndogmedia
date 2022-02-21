@@ -2,8 +2,9 @@
 
 {% block content %}
 
-<form method="post" action="/book_event/">
-    {{ form }}
+<form method="POST" action="/book_event/">
+    {% csrf_token %}
+    {{ form.as_p }}
     <button type="submit", name="save">Book Event</button>
 
 </form>

@@ -15,5 +15,13 @@ class EventList(generic.ListView):
 
 
 def Book(request):
-    form = book()
+    if request.method == "POST":
+        form = book(request.POST)
+
+        if form.is_valid():
+            e = form.cleaned_data["event_type"]
+            t = Event(event_type=e)
+            t.save()
+    else:
+        form = book()
     return render(request, "book_event.html", {"form":form}) 
