@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 from .models import Event
-from .forms import book
+from .forms import BookingForm
 
 
 def home(request):
@@ -14,14 +14,15 @@ class EventList(generic.ListView):
     template_name = "event_page.html"
 
 
-def Book(request):
+def book(request):
     if request.method == "POST":
-        form = book(request.POST)
+        form = BookingForm(request.POST)
 
         if form.is_valid():
-            e = form.cleaned_data["event_type"]
-            t = Event(event_type=e)
-            t.save()
+            n = form.cleaned_data["name"]
+            booking = Event(name=n)
+            booking.save()
+
     else:
-        form = book()
+        form = BookingForm()
     return render(request, "book_event.html", {"form":form}) 
