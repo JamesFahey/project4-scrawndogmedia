@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
+from django.http import HttpResponseRedirect
 from .models import Event
 from .forms import BookingForm
 
@@ -19,9 +20,14 @@ def book(request):
         form = BookingForm(request.POST)
 
         if form.is_valid():
-            n = form.cleaned_data["name"]
-            booking = Event(name=n)
+            name = form.cleaned_data["name"]
+            email = form.cleaned_data["email"]
+            event_type = form.cleaned_data["event_type"]
+            event_date = form.cleaned_data["event_date"]
+            booking = Event(name=name, email=email, event_type=event_type, event_date=event_date)
             booking.save()
+
+        return HttpResponseRedirect('event_page/')
 
     else:
         form = BookingForm()
