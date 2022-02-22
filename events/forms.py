@@ -25,6 +25,7 @@ class BookingForm(forms.ModelForm):
             'info',)
         widgets = {
             'event_date': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
+            'info': forms.Textarea(attrs={'class': 'form-control'}),
         }
         labels = {
                 'info': ('Tell us as much as you can about your day:'),

@@ -24,7 +24,8 @@ def book(request):
             email = form.cleaned_data["email"]
             event_type = form.cleaned_data["event_type"]
             event_date = form.cleaned_data["event_date"]
-            booking = Event(name=name, email=email, event_type=event_type, event_date=event_date)
+            info = form.cleaned_data["info"]
+            booking = Event(name=name, email=email, event_type=event_type, event_date=event_date, info=info)
             booking.save()
 
         return HttpResponseRedirect('event_page/')
