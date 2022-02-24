@@ -54,8 +54,8 @@
         
         <div class="container px-4 px-lg-5 h-100">
             <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                {% block content %}
                 <div class="col-lg-8 align-self-end">
-                    {% block content %}
                     <img class="logo" src="{% static 'assets/img/logo.png' %}" alt="">
                     <hr class="divider" />
                 </div>
@@ -72,7 +72,7 @@
     {% endblock content %}
 
     <!-- Footer-->
-    <footer class="bg-light py-5">
+    <footer class="bg-light py-5" style="width: 100%">
         <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - Scrawndog Media</div></div>
     </footer>
 

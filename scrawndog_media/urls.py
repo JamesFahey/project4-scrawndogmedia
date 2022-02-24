@@ -28,4 +28,5 @@ urlpatterns = [
     path('book_event/', views.book, name='Book Event'),
     path('book_event/event_page/', views.BookingList.as_view(), name='Event Page'),
     path('accounts/', include('allauth.urls')),
+    path('edit_event/', views.edit, name='Edit Event'),
 ]
