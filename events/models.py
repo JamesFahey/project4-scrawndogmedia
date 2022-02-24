@@ -1,5 +1,7 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
+# from django.conf import settings
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -13,16 +15,24 @@ EventType = (
 
 class Event(models.Model):
     """A class to represent events model."""
+    event_type = models.CharField(blank=True, choices=EventType, max_length=30, null=True)
+    event_image = CloudinaryField('image', default='placeholder', null=True)
+
+    def __str__(self):
+        return f'{self.event_type}'
+
+
+class Booking(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="booking", null=True)
     name = models.CharField(max_length=100, null=True)
     email = models.EmailField(null=True)
     event_type = models.CharField(blank=True, choices=EventType, max_length=30, null=True)
     event_date = models.DateField(null=True)
     info = models.TextField(max_length=500, blank=True, null=True)
-    event_image = CloudinaryField('image', default='placeholder', null=True)
     status = models.IntegerField(choices=STATUS, default=0, null=True)
 
     class Meta:
         ordering = ['event_date']
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'

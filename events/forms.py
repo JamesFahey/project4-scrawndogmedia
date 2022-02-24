@@ -1,5 +1,7 @@
 from .models import Event
+from .models import Booking
 from django import forms
+
 
 
 # EventType = (
@@ -17,7 +19,7 @@ from django import forms
     
 class BookingForm(forms.ModelForm):
     class Meta:
-        model = Event
+        model = Booking
         fields = ('name',
             'email',
             'event_type',

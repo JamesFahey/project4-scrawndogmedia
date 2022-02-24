@@ -1,10 +1,11 @@
 from django.contrib import admin
 from .models import Event
+from .models import Booking
 from django_summernote.admin import SummernoteModelAdmin
 
 
-@admin.register(Event)
-class EventAdmin(SummernoteModelAdmin):
+@admin.register(Booking)
+class BookingAdmin(SummernoteModelAdmin):
 
     list_display = ('name', 'email', 'event_type', 'status', 'event_date')
     search_fields = ['name', 'event_type']
