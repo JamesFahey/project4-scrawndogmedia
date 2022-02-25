@@ -5,10 +5,10 @@
 {% load crispy_forms_tags %}
 
 <div id="signup">
-<form method="post" action="/edit_event/">
+<form method="post">
     {% csrf_token %}
     {{ form | crispy }}
-    <button class="btn btn-primary btn-xl" type="submit", name="save">Update Event</button>
+    <button class="btn btn-primary btn-xl" type="submit">Update Event</button>
 
 </form>
 </div>

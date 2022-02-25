@@ -19,7 +19,8 @@ from django import forms
 class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
-        fields = ('name',
+        fields = ('user',
+            'name',
             'email',
             'event_type',
             'event_date',
@@ -33,20 +34,20 @@ class BookingForm(forms.ModelForm):
             }
 
 
-class EditForm(forms.ModelForm):
-    class Meta:
-        model = Edit
-        fields = ('name',
-            'email',
-            'event_type',
-            'event_date',
-            'info',)
-        widgets = {
-            'event_date': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
-            'info': forms.Textarea(attrs={'class': 'form-control'}),
-        }
-        labels = {
-                'info': ('Tell us as much as you can about your day:'),
-            }
+# class EditForm(forms.ModelForm):
+#     class Meta:
+#         model = Booking
+#         fields = ('name',
+#             'email',
+#             'event_type',
+#             'event_date',
+#             'info',)
+#         widgets = {
+#             'event_date': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
+#             'info': forms.Textarea(attrs={'class': 'form-control'}),
+#         }
+#         labels = {
+#                 'info': ('Tell us as much as you can about your day:'),
+#             }
 
 

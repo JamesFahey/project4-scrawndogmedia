@@ -2,6 +2,7 @@ from django.db import models
 from cloudinary.models import CloudinaryField
 # from django.conf import settings
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 # Create your models here.
 
@@ -37,6 +38,9 @@ class Booking(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+
+    def get_absolute_url(self):
+        return reverse('event_page')
 
 
 class Edit(models.Model):
