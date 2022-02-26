@@ -30,5 +30,6 @@ urlpatterns = [
     # path('book_event/event_page/', views.BookingList.as_view(), name='event_page'),
     path('accounts/', include('allauth.urls')),
     path('booking_details/edit/<int:pk>', views.UpdateBooking.as_view(), name='edit_event'),
+    path('booking_details/<int:pk>/cancel', views.CancelBooking.as_view(), name='cancel_event'),
     # path('edit_event/<int:pk>/event_page/', views.BookingList.as_view(), name='event_page'),
 ]

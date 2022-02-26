@@ -17,7 +17,7 @@
               <p class="card-text">Status: Requested</p>
               {% endif %}
               <a href="{% url 'edit_event' booking.pk %}" button class="btn btn-primary">Edit</a>
-              <button class="btn btn-primary">Delete</button>
+              <a href="{% url 'cancel_event' booking.pk %}" class="btn btn-primary">Delete</a>
            </div>
     </div>
 
