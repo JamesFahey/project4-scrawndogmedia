@@ -1,9 +1,12 @@
+from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render
 from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
 from django.http import HttpResponseRedirect
 from .models import Booking
-from .forms import BookingForm
+from .forms import BookingForm, EditForm
 from django.urls import reverse_lazy
+from django import forms
+from django.contrib.messages.views import SuccessMessageMixin
 
 
 def home(request):
@@ -23,16 +26,21 @@ class BookingDetails(DetailView):
     model = Booking
     template_name = "booking_details.html"
 
-class AddBooking(CreateView):
+class AddBooking(SuccessMessageMixin, CreateView):
     model = Booking
+    form_class = BookingForm
     template_name = "book_event.html"
-    fields = ['user',
-            'name',
-            'email',
-            'event_type',
-            'event_date',
-            'info',
-    ]
+    success_message = "Thank you for your booking! Someone will be in contact soon to discuss further arrangements and payment"
+    # fields = ['user',
+    #         'name',
+    #         'email',
+    #         'event_type',
+    #         'event_date',
+    #         'info',
+    # ]
+    widgets = {
+            'event_date': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
+    }
 
 
 # def book(request):
@@ -75,16 +83,21 @@ class AddBooking(CreateView):
 #         form = EditForm()
 #     return render(request, "edit_event.html", {"form":form})
 
-class UpdateBooking(UpdateView):
+class UpdateBooking(SuccessMessageMixin, UpdateView):
     model = Booking
+    form_class = EditForm
     template_name = "edit_event.html"
-    fields = [
-        'name',
-        'email',
-        'event_type',
-        'event_date',
-        'info',
-    ]
+    success_message = "You have successfully edited your booking"
+    # fields = [
+    #     'name',
+    #     'email',
+    #     'event_type',
+    #     'event_date',
+    #     'info',
+    # ]
+    widgets = {
+            'event_date': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
+    }
 
 class CancelBooking(DeleteView):
     model = Booking

@@ -53,6 +53,14 @@
     <header class="masthead">
         
         <div class="container px-4 px-lg-5 h-100">
+            {% if messages %}
+
+                <div class='alert alert-warning'>
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+                </div>
+                {% endif %}
             <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                 {% block content %}
                 <div class="col-lg-8 align-self-end">
