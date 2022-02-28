@@ -99,7 +99,9 @@ class UpdateBooking(SuccessMessageMixin, UpdateView):
             'event_date': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
     }
 
-class CancelBooking(DeleteView):
+class CancelBooking(SuccessMessageMixin, DeleteView):
     model = Booking
     template_name = "cancel_event.html"
+    success_message = "You have successfully cancelled your booking"
     success_url = reverse_lazy('event_page')
+    

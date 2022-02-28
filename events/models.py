@@ -29,6 +29,7 @@ class Booking(models.Model):
     email = models.EmailField(null=True)
     event_type = models.CharField(blank=True, choices=EventType, max_length=30, null=True)
     event_date = models.DateField(null=True)
+    event_image = CloudinaryField('image', default='placeholder', null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     info = models.TextField(max_length=500, blank=True, null=True)
     status = models.IntegerField(choices=STATUS, default=0, null=True)
