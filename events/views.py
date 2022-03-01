@@ -7,6 +7,7 @@ from .forms import BookingForm, EditForm
 from django.urls import reverse_lazy
 from django import forms
 from django.contrib.messages.views import SuccessMessageMixin
+from django.core.mail import send_mail
 
 
 def home(request):
@@ -105,3 +106,22 @@ class CancelBooking(SuccessMessageMixin, DeleteView):
     success_message = "You have successfully cancelled your booking"
     success_url = reverse_lazy('event_page')
     
+
+def contact(request):
+    if render.method == "POST":
+        name = request.POST['name']
+        email = request.POST['email']
+        # phone = request.POST['phone']
+        message = request.POST['message']
+
+        send_mail(
+            name,
+            email,
+            message,
+            ['jcfahey007@gmail.com'],
+        )
+
+        return render(request, 'home', {'name': name})
+
+    else:
+        return render(request, 'home', {})
