@@ -19,7 +19,6 @@ from events.views import home
 from events import views
 
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", home, name="home"),
@@ -32,4 +31,6 @@ urlpatterns = [
     path('booking_details/edit/<int:pk>', views.UpdateBooking.as_view(), name='edit_event'),
     path('booking_details/<int:pk>/cancel', views.CancelBooking.as_view(), name='cancel_event'),
     # path('edit_event/<int:pk>/event_page/', views.BookingList.as_view(), name='event_page'),
+    path("calendar/", views.event_calendar, name="calendar"),
+    path("<int:year>/<str:month>/", views.event_calendar, name="calendar"),
 ]

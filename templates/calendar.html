@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div id="signup">
+    <h3>Bookings for {{ month }} {{ year }}</h3>
+    <br/>
+    <center>{{ cal|safe }}</center>
+    <br/><br/>
+    <h3>Events This Month</h3>
+
+    {% if event_list %}
+        {% for booking in event_list %}
+        {{ booking }} - {{ booking.event_date }}
+        {% endfor %}
+
+    
+    
+    {% else %}
+    There are currently no events this month
+    {% endif %}
+
+
+
+</div>
+
+
+
+
+
+{% endblock content %}

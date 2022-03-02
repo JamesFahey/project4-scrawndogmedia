@@ -1,13 +1,19 @@
+import calendar
+from calendar import HTMLCalendar
+from datetime import datetime
 from django.contrib.messages.views import SuccessMessageMixin
+from django.core.mail import send_mail
 from django.shortcuts import render
 from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
 from django.http import HttpResponseRedirect
-from .models import Booking
-from .forms import BookingForm, EditForm
 from django.urls import reverse_lazy
 from django import forms
-from django.contrib.messages.views import SuccessMessageMixin
-from django.core.mail import send_mail
+from django.conf import settings
+from .models import Booking
+from .forms import BookingForm, EditForm
+
+
+
 
 
 def home(request):
@@ -100,6 +106,7 @@ class UpdateBooking(SuccessMessageMixin, UpdateView):
             'event_date': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
     }
 
+
 class CancelBooking(SuccessMessageMixin, DeleteView):
     model = Booking
     template_name = "cancel_event.html"
@@ -108,20 +115,41 @@ class CancelBooking(SuccessMessageMixin, DeleteView):
     
 
 def contact(request):
-    if render.method == "POST":
-        name = request.POST['name']
-        email = request.POST['email']
+    if request.method == "POST":
+        message_name = request.POST.get('message_name')
+        message_email = request.POST.get('message_email')
         # phone = request.POST['phone']
-        message = request.POST['message']
-
+        message = request.POST.get('message')
         send_mail(
-            name,
-            email,
+            message_name,
+            settings.EMAIL_HOST_USER,
             message,
-            ['jcfahey007@gmail.com'],
+            [message_email],
         )
 
-        return render(request, 'home', {'name': name})
+        return render(request, 'home', {'name': message_name})
 
     else:
         return render(request, 'home', {})
+
+def event_calendar(request, year=datetime.now().year, month=datetime.now().strftime('%B')):
+    name = "James"
+    month = month.capitalize()
+    month_number = list(calendar.month_name).index(month)
+    month_number = int(month_number)
+    cal = HTMLCalendar().formatmonth(
+        year,
+        month_number)
+
+    event_list = Booking.objects.filter(
+        event_date__year = year,
+        event_date__month = month_number
+    )
+
+    return render(request, 'calendar.html', {
+        'name': name,
+        'year': year,
+        'month': month,
+        'cal': cal,
+        'event_list': event_list,
+        })
