@@ -8,10 +8,35 @@
     <center>{{ cal|safe }}</center>
     <br/><br/>
     <h3>Events This Month</h3>
+    <br/><br/><br/>
+</div>
 
     {% if event_list %}
         {% for booking in event_list %}
-        {{ booking }} - {{ booking.event_date }}
+        <div class="row">
+            <div class="col s12 m6 l3">
+                <div class="card">
+                  <!-- {% if booking.event_image %}
+                  <a href="{% url 'booking_details' booking.pk %}"><img class="card-img-top" src="https://res.cloudinary.com/jamesfahey/image/upload/c_scale,w_250/v1645305907/cloud-img1_kbyu20.jpg" alt="Card image cap"></a>
+                  {% else %}
+                  <a href="{% url 'booking_details' booking.pk %}"><img class="card-img-top" src="https://res.cloudinary.com/jamesfahey/image/upload/c_scale,w_250/v1646043465/cloud-img2_tyy7a7.webp" alt="Card image cap"></a>
+                  {% endif %} -->
+                    <div class="card-body">
+                      <h5 class="card-title">Name: {{ booking.name }}</h5>
+                      <h5 class="card-title">Event Type: {{ booking.event_type }}</h5>
+                      <h5 class="card-date">Event Date: {{ booking.event_date }}</h5>
+                      {% if booking.status %}
+                      <p class="card-text">Status: Confirmed</p>
+                      {% else %}
+                      <p class="card-text">Status: Requested</p>
+                      {% endif %}
+                      
+                </div>
+            </div>
+          </div>
+        </div>
+        <!-- {{ booking }} - {{ booking.event_date }}
+        <br/> -->
         {% endfor %}
 
     
@@ -22,7 +47,7 @@
 
 
 
-</div>
+
 
 
 
