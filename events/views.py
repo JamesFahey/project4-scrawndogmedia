@@ -143,7 +143,8 @@ def event_calendar(request, year=datetime.now().year, month=datetime.now().strft
 
     event_list = Booking.objects.filter(
         event_date__year = year,
-        event_date__month = month_number
+        event_date__month = month_number,
+        status = 1
     )
 
     return render(request, 'calendar.html', {
