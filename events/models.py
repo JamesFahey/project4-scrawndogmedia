@@ -11,6 +11,9 @@ STATUS = ((0, "Requested"), (1, "Confirmed"))
 EventType = (
     ('WEDDING', 'Wedding'),
     ('CHRISTENING', 'Christening'),
+    ('FAMILY SHOOTS', 'Family Shoots'),
+    ('COUPLE SHOOTS', 'Couple Shoots'),
+    ('PERSONAL SHOOTS', 'Personal Shoots'),
     ('OTHER', 'Other'),
 )
 
