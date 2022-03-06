@@ -1,19 +1,17 @@
-import calendar
-from calendar import HTMLCalendar
-from datetime import datetime
-from django.contrib.messages.views import SuccessMessageMixin
-from django.core.mail import send_mail
-from django.shortcuts import render
-from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django import forms
 from django.conf import settings
 from .models import Booking
 from .forms import BookingForm, EditForm
-
-
-
+import calendar
+from calendar import HTMLCalendar
+from datetime import datetime
+from django.contrib.messages.views import SuccessMessageMixin
+from django.core.mail import send_mail
+from django.shortcuts import render
+from django.views.generic import ListView, CreateView, UpdateView, DetailView
+from django.views.generic import DeleteView
 
 
 def home(request):
@@ -33,11 +31,14 @@ class BookingDetails(DetailView):
     model = Booking
     template_name = "booking_details.html"
 
+
 class AddBooking(SuccessMessageMixin, CreateView):
     model = Booking
     form_class = BookingForm
     template_name = "book_event.html"
-    success_message = "Thank you for your booking! Someone will be in contact soon to discuss further arrangements and payment"
+    success_message = ("Thank you for your booking! Someone will be in" +
+                       "contact soon to discuss further arrangements" +
+                       " and payment")
     # fields = ['user',
     #         'name',
     #         'email',
@@ -46,7 +47,10 @@ class AddBooking(SuccessMessageMixin, CreateView):
     #         'info',
     # ]
     widgets = {
-            'event_date': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
+            'event_date': forms.DateInput(format=('%m/%d/%Y'),
+                                          attrs={'class': 'form-control',
+                                          'placeholder': 'Select a date',
+                                                         'type': 'date'}),
     }
 
 
@@ -103,7 +107,10 @@ class UpdateBooking(SuccessMessageMixin, UpdateView):
     #     'info',
     # ]
     widgets = {
-            'event_date': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
+            'event_date': forms.DateInput(format=('%m/%d/%Y'),
+                                          attrs={'class': 'form-control',
+                                          'placeholder': 'Select a date',
+                                                         'type': 'date'}),
     }
 
 
@@ -112,7 +119,7 @@ class CancelBooking(SuccessMessageMixin, DeleteView):
     template_name = "cancel_event.html"
     success_message = "You have successfully cancelled your booking"
     success_url = reverse_lazy('event_page')
-    
+
 
 def contact(request):
     if request.method == "POST":
@@ -132,7 +139,9 @@ def contact(request):
     else:
         return render(request, 'home', {})
 
-def event_calendar(request, year=datetime.now().year, month=datetime.now().strftime('%B')):
+
+def event_calendar(request, year=datetime.now().year,
+                   month=datetime.now().strftime('%B')):
     name = "James"
     month = month.capitalize()
     month_number = list(calendar.month_name).index(month)
@@ -142,9 +151,9 @@ def event_calendar(request, year=datetime.now().year, month=datetime.now().strft
         month_number)
 
     event_list = Booking.objects.filter(
-        event_date__year = year,
-        event_date__month = month_number,
-        status = 1
+        event_date__year=year,
+        event_date__month=month_number,
+        status=1
     )
 
     return render(request, 'calendar.html', {
