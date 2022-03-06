@@ -2,7 +2,6 @@ from .models import Event, Booking, Edit
 from django import forms
 
 
-
 # EventType = (
 #     ("WEDDING", "Wedding"),
 #     ("CHRISTENING", "Christening"),
@@ -15,18 +14,21 @@ from django import forms
 #     event_type = forms.ChoiceField(choices=EventType)
 #     event_date = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
 #     info = forms.CharField(label="Please tell us as much as you can about your day", max_length=500)
-    
+
 class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
         fields = ('user',
-            'name',
-            'email',
-            'event_type',
-            'event_date',
-            'info',)
+                  'name',
+                  'email',
+                  'event_type',
+                  'event_date',
+                  'info',)
         widgets = {
-            'event_date': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
+            'event_date': forms.DateInput(format=('%m/%d/%Y'),
+                                          attrs={'class': 'form-control',
+                                          'placeholder': 'Select a date',
+                                                         'type': 'date'}),
             'info': forms.Textarea(attrs={'class': 'form-control'}),
         }
         labels = {
@@ -38,16 +40,17 @@ class EditForm(forms.ModelForm):
     class Meta:
         model = Booking
         fields = ('name',
-            'email',
-            'event_type',
-            'event_date',
-            'info',)
+                  'email',
+                  'event_type',
+                  'event_date',
+                  'info',)
         widgets = {
-            'event_date': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
+            'event_date': forms.DateInput(format=('%m/%d/%Y'),
+                                          attrs={'class': 'form-control',
+                                          'placeholder': 'Select a date',
+                                                         'type': 'date'}),
             'info': forms.Textarea(attrs={'class': 'form-control'}),
         }
         labels = {
                 'info': ('Tell us as much as you can about your day:'),
             }
-
-
