@@ -4,16 +4,17 @@
 
 {% load crispy_forms_tags %}
 
-<div id="signup">
-<form method="post" action="/book_event/">
-    {% csrf_token %}
-    {{ form | crispy }}
-    <br/>
-    <button class="btn btn-primary btn-xl" type="submit" name="save">Book Event</button>
+{% load cloudinary %}
 
-</form>
+<div id="signup">
+    <form method="post" enctype="multipart/form-data" action="/book_event/">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <br />
+        <button class="btn btn-primary btn-xl" type="submit" name="save">Book Event</button>
+
+    </form>
 </div>
 </header>
 
 {% endblock content %}
-

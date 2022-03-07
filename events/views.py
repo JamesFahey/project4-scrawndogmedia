@@ -12,6 +12,7 @@ from django.core.mail import send_mail
 from django.shortcuts import render
 from django.views.generic import ListView, CreateView, UpdateView, DetailView
 from django.views.generic import DeleteView
+from cloudinary.forms import cl_init_js_callbacks
 
 
 def home(request):

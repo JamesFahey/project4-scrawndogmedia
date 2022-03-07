@@ -7,26 +7,31 @@
 
 {% for booking in user.booking.all %}
 <div class="row">
-    <div class="col s12 m6 l3">
-        <div class="card">
-          {% if booking.event_image %}
-          <a href="{% url 'booking_details' booking.pk %}"><img class="card-img-top" src="https://res.cloudinary.com/jamesfahey/image/upload/c_scale,w_250/v1645305907/cloud-img1_kbyu20.jpg" alt="Card image cap"></a>
-          {% else %}
-          <a href="{% url 'booking_details' booking.pk %}"><img class="card-img-top" src="https://res.cloudinary.com/jamesfahey/image/upload/c_scale,w_250/v1646043465/cloud-img2_tyy7a7.webp" alt="Card image cap"></a>
-          {% endif %}
-            <div class="card-body">
-              <h5 class="card-title">Name: {{ booking.name }}</h5>
-              <h5 class="card-title">Event Type: {{ booking.event_type }}</h5>
-              <h5 class="card-date">Event Date: {{ booking.event_date }}</h5>
-              {% if booking.status %}
-              <p class="card-text">Status: Confirmed</p>
-              {% else %}
-              <p class="card-text">Status: Requested</p>
-              {% endif %}
-              <a href="{% url 'edit_event' booking.pk %}" class="btn btn-primary" ><i class="fas fa-pencil-alt edit-icon"></i> Edit</a>
-              <a href="{% url 'cancel_event' booking.pk %}" class="btn btn-primary"><i class="far fa-trash-alt del-icon"></i> Delete</a>
-              
-        </div>
+  <div class="col s12 m6 l3">
+    <div class="card">
+      {% if "placeholder" in booking.event_image.url %}
+      <a href="{% url 'booking_details' booking.pk %}"><img class="card-img-top"
+          src="https://res.cloudinary.com/jamesfahey/image/upload/c_scale,w_250/v1645305907/cloud-img1_kbyu20.jpg"
+          alt="Card image cap"></a>
+      {% else %}
+      <a href="{% url 'booking_details' booking.pk %}"><img class="card-img-top" src="{{ booking.event_image.url }}"
+          width="250px" height="190px" alt="Card image cap"></a>
+      {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">Name: {{ booking.name }}</h5>
+        <h5 class="card-title">Event Type: {{ booking.event_type }}</h5>
+        <h5 class="card-date">Event Date: {{ booking.event_date }}</h5>
+        {% if booking.status %}
+        <p class="card-text">Status: Confirmed</p>
+        {% else %}
+        <p class="card-text">Status: Requested</p>
+        {% endif %}
+        <a href="{% url 'edit_event' booking.pk %}" class="btn btn-primary"><i class="fas fa-pencil-alt edit-icon"></i>
+          Edit</a>
+        <a href="{% url 'cancel_event' booking.pk %}" class="btn btn-primary"><i class="far fa-trash-alt del-icon"></i>
+          Delete</a>
+
+      </div>
     </div>
   </div>
 </div>

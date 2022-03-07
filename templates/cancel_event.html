@@ -3,11 +3,11 @@
 {% block content %}
 
 <div id="signup">
-    <h3>Are you sure you want to cancel your booking?</h3><br/><br/>
+    <h3>Are you sure you want to cancel your booking?</h3><br /><br />
     <p>Bookings cancelled within 2 weeks of the event may not be entitled to a refund</p>
     <form method="post">
-    {% csrf_token %}
-    <button class="btn btn-primary btn-xl" type="submit">Cancel Booking</button>
+        {% csrf_token %}
+        <button class="btn btn-primary btn-xl" type="submit">Cancel Booking</button>
 
     </form>
 </div>

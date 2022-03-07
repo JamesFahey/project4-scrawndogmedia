@@ -23,6 +23,7 @@ class BookingForm(forms.ModelForm):
                   'email',
                   'event_type',
                   'event_date',
+                  'event_image',
                   'info',)
         widgets = {
             'event_date': forms.DateInput(format=('%m/%d/%Y'),
@@ -43,6 +44,7 @@ class EditForm(forms.ModelForm):
                   'email',
                   'event_type',
                   'event_date',
+                  'event_image',
                   'info',)
         widgets = {
             'event_date': forms.DateInput(format=('%m/%d/%Y'),

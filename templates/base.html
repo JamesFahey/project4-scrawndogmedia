@@ -1,135 +1,145 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="{% static 'assets/img/logo.png' %}" />
-        <!-- Bootstrap Icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
-        <!-- SimpleLightbox plugin CSS-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
-        <title>Scrawndog Media</title>
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    </head>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <!-- Favicon-->
+  <link rel="icon" type="image/x-icon" href="{% static 'assets/img/logo.png' %}" />
+  <!-- Bootstrap Icons-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
+    rel="stylesheet" type="text/css" />
+  <!-- SimpleLightbox plugin CSS-->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
+    integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <title>Scrawndog Media</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
 <body id="page-top">
 
-     <!-- Navigation-->
-     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-        <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="{% url 'home' %}">Scrawndog Media</a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                    {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'event_page' %}">Your Events</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'Book Event' %}">Book Event</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'calendar' %}">Calendar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-                    </li>
-                    {% else %}
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}">Sign Up</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">Log in</a></li>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- Masthead-->
-    <header class="masthead">
-        {% if messages %}
-                {% for message in messages %}
-                <div class="alert alert-warning alert-dismissible fade show container" role="alert">
-                    {{ message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                {% endfor %}
-                </div>
-            {% endif %}
-        <div class="container px-4 px-lg-5 h-100">
-            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
-                {% block content %}
-                <div class="col-lg-8 align-self-end">
-                    <img class="logo" src="{% static 'assets/img/logo.png' %}" alt="">
-                    <hr class="divider" />
-                </div>
-                <div class="col-lg-8 align-self-baseline">
-                    <p class="text-white-75 mb-5">We are a family run videographer business based in Stockport. While our main passion is filming weddings, we love covering other events too.</p>
-                    <a class="btn btn-primary btn-xl" href="#about">Find Out More</a>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    
-    
-    {% endblock content %}
-
-    <!-- Footer-->
-<footer class="bg-light py-5" style="width: 100%">
-    <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - Scrawndog Media <ul class="list-inline social-links">
-        <li class="list-inline-item">
-          <a target="_blank" href="#">
-            <i class="fab fa-facebook" aria-hidden="true"></i>
-            <span class="sr-only">Facebook</span>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a target="_blank" href="#">
-            <i class="fab fa-twitter" aria-hidden="true"></i>
-            <span class="sr-only">Twitter</span>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a target="_blank" href="#">
-            <i class="fab fa-instagram" aria-hidden="true"></i>
-            <span class="sr-only">Instagram</span>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a target="_blank" href="#">
-            <i class="fab fa-pinterest" aria-hidden="true"></i>
-            <span class="sr-only">Pinterest</span>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a target="_blank" href="#">
-            <i class="fab fa-youtube" aria-hidden="true"></i>
-            <span class="sr-only">Youtube</span>
-          </a>
-        </li>
-      </ul>
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <div class="container px-4 px-lg-5">
+      <a class="navbar-brand" href="{% url 'home' %}">Scrawndog Media</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+        aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ms-auto my-2 my-lg-0">
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'event_page' %}">Your Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'Book Event' %}">Book Event</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'calendar' %}">Calendar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+          </li>
+          {% else %}
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}">Sign Up</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">Log in</a></li>
+          {% endif %}
+        </ul>
+      </div>
     </div>
-</footer>
+  </nav>
+  <!-- Masthead-->
+  <header class="masthead">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-warning alert-dismissible fade show container" role="alert">
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    </div>
+    {% endif %}
+    <div class="container px-4 px-lg-5 h-100">
+      <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+        {% block content %}
+        <div class="col-lg-8 align-self-end">
+          <img class="logo" src="{% static 'assets/img/logo.png' %}" alt="">
+          <hr class="divider" />
+        </div>
+        <div class="col-lg-8 align-self-baseline">
+          <p class="text-white-75 mb-5">We are a family run videographer business based in Stockport. While our main
+            passion is filming weddings, we love covering other events too.</p>
+          <a class="btn btn-primary btn-xl" href="#about">Find Out More</a>
+        </div>
+      </div>
+    </div>
+  </header>
 
-    
-<!-- Bootstrap core JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- SimpleLightbox plugin JS-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
-<!-- Core theme JS-->
-<script src="{% static 'js/scripts.js' %}"></script>
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-<!-- * *                               SB Forms JS                               * *-->
-<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>    
+
+
+  {% endblock content %}
+
+  <!-- Footer-->
+  <footer class="bg-light py-5" style="width: 100%">
+    <div class="container px-4 px-lg-5">
+      <div class="small text-center text-muted">Copyright &copy; 2022 - Scrawndog Media <ul
+          class="list-inline social-links">
+          <li class="list-inline-item">
+            <a target="_blank" href="#">
+              <i class="fab fa-facebook" aria-hidden="true"></i>
+              <span class="sr-only">Facebook</span>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a target="_blank" href="#">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+              <span class="sr-only">Twitter</span>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a target="_blank" href="#">
+              <i class="fab fa-instagram" aria-hidden="true"></i>
+              <span class="sr-only">Instagram</span>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a target="_blank" href="#">
+              <i class="fab fa-pinterest" aria-hidden="true"></i>
+              <span class="sr-only">Pinterest</span>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a target="_blank" href="#">
+              <i class="fab fa-youtube" aria-hidden="true"></i>
+              <span class="sr-only">Youtube</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+  </footer>
+
+
+  <!-- Bootstrap core JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- SimpleLightbox plugin JS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+  <!-- Core theme JS-->
+  <script src="{% static 'js/scripts.js' %}"></script>
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+  <!-- * *                               SB Forms JS                               * *-->
+  <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+  <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </body>
+
 </html>
