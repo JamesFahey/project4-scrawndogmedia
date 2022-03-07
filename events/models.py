@@ -13,7 +13,7 @@ EventType = (
     ('CHRISTENING', 'Christening'),
     ('FAMILY SHOOTS', 'Family Shoots'),
     ('COUPLE SHOOTS', 'Couple Shoots'),
-    ('PERSONAL SHOOTS', 'Personal Shoots'),
+    ('SELF SHOOTS', 'Self Shoots'),
     ('OTHER', 'Other'),
 )
 
