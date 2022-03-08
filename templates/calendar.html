@@ -2,10 +2,10 @@
 
 {% block content %}
 
-<div id="signup" style="text-align:center">
+<div id="signup">
   <h3>Bookings for {{ month }} {{ year }}</h3>
   <br />
-  {{ cal|safe }}
+  <div class="container" style="display: block; margin: auto;">{{ cal|safe }}</div>
   <br /><br />
   <h3>Events This Month</h3>
   <br /><br /><br />
