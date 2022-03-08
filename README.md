@@ -331,3 +331,19 @@ I also signed back into the account used for testing to see if the status had be
 ### User testing
 
 I have asked friends and family to use the sites functionality with no reports of issues. Feedback was primarily for design and choice of wording on the homepage. I saw the lack of feedback for functionality as a plus as everything was working as intended 
+
+### Bugs/Issues
+
+Footer was being pulled into header tag. As I used styling from the base.html across all pages the main bulk of content was included in the header to keep the site consistent. The block content function was not registering the closing header tag so the footer was floating underneath the page content rather then sticking to the bottom of the page. I added a closing header tag to each page in order to keep the footer in place
+
+I originally wanted to assign each event type a particular image so once the user had selected their event, on their event page it would generate the image on the html card. Discussing this with my mentor he advised this could become repetitive seeing the same images. Allowing the user to select their own image adds more choice to the customer while making it more personal to them.
+
+### Features to be implemented
+
+### Payment method
+
+The next implementation for the site would be a payment method for the bookings. This would allow transactions to be completed all in one process. Doing this the way of accepting bookings would have to change. Currently the owner can manage their diary through the admin page and deal with any days selected multiple times. Continuing with this method would result in having to offer refunds if users chose the same day
+
+### Add and create further portfolios
+
+Currently Scrawndog Media is a starter company and is in the process of taking their first bookings. This resulted in not a lot of material for the site hence why on the portfolio section I have had to use placeholder images. Once these bookings have been completed the source material can be added to the site.
