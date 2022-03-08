@@ -185,7 +185,9 @@ I predominantly chose to do manual testing but to demonstrate unittesting I chos
 ### Epic: As a site user/admin I have the option to register or sign into the site
 From the home page users can access either the register/signup or log in page by using the nav bar situated at the top right of the page
 - As a site owner I can access an admin page so that I can manage site content 
+
 A superuser was created allowing access to an admin page. There the owner has access to all backend information including users and bookings
+
 - As a site user I can register an account so that I can book an event
 Once a user has registered, they will be granted further site access including a booking page
 
