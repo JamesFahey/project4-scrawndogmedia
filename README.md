@@ -183,28 +183,81 @@ I predominantly chose to do manual testing but to demonstrate unittesting I chos
 ### Manual Testing by User Story
 
 ### Epic: As a site user/admin I have the option to register or sign into the site
+
 From the home page users can access either the register/signup or log in page by using the nav bar situated at the top right of the page
+
 - As a site owner I can access an admin page so that I can manage site content 
 
 A superuser was created allowing access to an admin page. There the owner has access to all backend information including users and bookings
 
 - As a site user I can register an account so that I can book an event
+
 Once a user has registered, they will be granted further site access including a booking page
 
 ### Epic:  As a site user/admin I can create and view bookings
+
+Once a user has registered, they will be granted further site access allowing them to make bookings or view bookings
+
 - As a registered user I can book an event through the site so that I do not need to call
-- As a registered user I can click on a booking so that I can see all information for that booking
+
+To book events a registered user will have access to a booking to complete. The form will request name, email, event type and date, then any other information the videographer/photographer may find useful
+
 - As a registered user I can see my booked events so that I can keep track of bookings
+
+After a booking form has been completed it will be added to their events page waiting to be confirmed by the admin
+
+- As a registered user I can click on a booking so that I can see all information for that booking
+
+On the events page a user can select a booking access the bookings own page and all further info regarding the booking will be provided
+
 - As a user I can see upcoming bookings so that I can see which dates are available
 
+A calendar page has been provided to registered users showing all upcoming bookings
+
 ### Epic:  As a site user/admin I can edit and delete bookings
+
+Users have the option to edit and delete bookings from either the events or further details page
+
 - As a site user/ business owner I can edit booked events so that I can manage my bookings
+
+Users have the option to edit bookings once they have been made. This can be anything from event type to event date. Once this change has been made it will once again need to be confirmed by the admin
+
 - As a site user/ business owner I can cancel bookings if necessary
 
+Users have the option to delete bookings if necessary. Extra warnings regarding refunds will be provided also a confirmation feature to make sure the user meant to delete the booking
+
 ### Epic:  As a site admin I can manage my diary and confirm bookings
+
+After creating a superuser, the admin of the site can view all bookings and manage their diary accordingly
+
 - As a Business owner I can confirm booking request so that I can manage my workload
+
+After a user has completed a booking form the business owner can access the admin page and confirm which bookings have been accepted
+
 - As a business owner I can order and filter bookings to better manage my diary
 
+The admin page will allow the business owner to filter by date and event type. This will be crucial for managing their diary and workload 
+
 ### Epic: As a business owner I can promote the brand
+
+The main page of the site will be accessible to all users and provide users with the main concepts of the business as well as work and social links
+
 - As a Business owner I will have the brands logo prominent on the home page
+
+The business logo will be prominent on the main page as well as the favicon logo
+
 - As a Business owner I can add my work to the site for users to see
+
+On the homepage there will be a section for portfolios. Here the site owner can add their latest work for users to view
+
+### General Manual Testing
+
+#### Registering
+
+To test the sign up function I tried to sign up without completing the required field. All gave the below message
+
+<img src="assets/readme_imgs/testing/signup.png" width="50%">
+
+Once all required fields are completed sign up will be complete and you will have registered for an account
+
+<img src="assets/readme_imgs/testing/signup_complete.png" width="50%">
