@@ -312,18 +312,18 @@ Testing to see if you get prompted before deleting a post
 
 First I tried to access the admin page while still logged in as another user
 
-<img src="assets/readme_imgs/admin_auth.png" width="50%">
+<img src="assets/readme_imgs/testing/admin_auth.png" width="50%">
 
 Once logged in as admin I filtered for the booking we created during testing
 
-<img src="assets/readme_imgs/admin_requested_event.png" width="50%">
+<img src="assets/readme_imgs/testing/admin_requested_event.png" width="50%">
 
 I then updated of the status from requested to confirmed
 
-<img src="assets/readme_imgs/admin_update_status.png" width="50%">
+<img src="assets/readme_imgs/testing/admin_update_status.png" width="50%">
 
-<img src="assets/readme_imgs/admin_confirmed.png" width="50%">
+<img src="assets/readme_imgs/testing/admin_confirmed.png" width="50%">
 
 I also signed back into the account used for testing to see if the status had been updated on the site
 
-<img src="assets/readme_imgs/confirmed_booking.png" width="50%">
+<img src="assets/readme_imgs/testing/confirmed_booking.png" width="50%">
