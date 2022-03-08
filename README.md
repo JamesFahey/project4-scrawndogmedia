@@ -327,3 +327,7 @@ I then updated of the status from requested to confirmed
 I also signed back into the account used for testing to see if the status had been updated on the site
 
 <img src="assets/readme_imgs/testing/confirmed_booking.png" width="50%">
+
+### User testing
+
+I have asked friends and family to use the sites functionality with no reports of issues. Feedback was primarily for design and choice of wording on the homepage. I saw the lack of feedback for functionality as a plus as everything was working as intended 
