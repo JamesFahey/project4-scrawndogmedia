@@ -384,7 +384,7 @@ I would like to add an email confirmation for sign up and booking. Once the user
 
 # Code Validation
 
-- The HTML templates were validated using W3 Validator. No errors were returned for the html segments.
+- The HTML templates were validated using W3 Validator. No errors were returned for the html segments. However there was some errors from the django functions, ie forms and calendar which could not be helped
 
 - The CSS style sheet was validated using W3C Validator, no errors were returned.
 
