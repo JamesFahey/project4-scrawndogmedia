@@ -16,7 +16,7 @@ class BookingForm(forms.ModelForm):
         widgets = {
             'event_date': forms.DateInput(format=('%m/%d/%Y'),
                                           attrs={'class': 'form-control',
-                                                         'type': 'date'}),
+                                                 'type': 'date'}),
             'info': forms.Textarea(attrs={'class': 'form-control'}),
         }
         labels = {
@@ -37,7 +37,7 @@ class EditForm(forms.ModelForm):
         widgets = {
             'event_date': forms.DateInput(format=('%m/%d/%Y'),
                                           attrs={'class': 'form-control',
-                                                         'type': 'date'}),
+                                                 'type': 'date'}),
             'info': forms.Textarea(attrs={'class': 'form-control'}),
         }
         labels = {
