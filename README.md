@@ -157,10 +157,6 @@ The colour scheme has been chosen to complement the predominant colour of the lo
 
 ### Balsamiq Wireframes
 
-  <hr>
-
-  #### PC Wireframes
-  
    * [Desktop](assets/readme_imgs/wireframes/desktop/)
 
    * [Mobile](assets/readme_imgs/wireframes/mobile/)
@@ -177,3 +173,36 @@ All visitors to the site can view brand information and portfolios however a use
 - Calendar
 - Edit Event
 - Delete Event
+
+# Testing
+
+### Unittesting
+
+I predominantly chose to do manual testing but to demonstrate unittesting I chose to focus on the url.py. I carried out 8 tests all coming back successfully
+
+### Manual Testing by User Story
+
+### Epic: As a site user/admin I have the option to register or sign into the site
+From the home page users can access either the register/signup or log in page by using the nav bar situated at the top right of the page
+- As a site owner I can access an admin page so that I can manage site content 
+A superuser was created allowing access to an admin page. There the owner has access to all backend information including users and bookings
+- As a site user I can register an account so that I can book an event
+Once a user has registered, they will be granted further site access including a booking page
+
+### Epic:  As a site user/admin I can create and view bookings
+- As a registered user I can book an event through the site so that I do not need to call
+- As a registered user I can click on a booking so that I can see all information for that booking
+- As a registered user I can see my booked events so that I can keep track of bookings
+- As a user I can see upcoming bookings so that I can see which dates are available
+
+### Epic:  As a site user/admin I can edit and delete bookings
+- As a site user/ business owner I can edit booked events so that I can manage my bookings
+- As a site user/ business owner I can cancel bookings if necessary
+
+### Epic:  As a site admin I can manage my diary and confirm bookings
+- As a Business owner I can confirm booking request so that I can manage my workload
+- As a business owner I can order and filter bookings to better manage my diary
+
+### Epic: As a business owner I can promote the brand
+- As a Business owner I will have the brands logo prominent on the home page
+- As a Business owner I can add my work to the site for users to see
