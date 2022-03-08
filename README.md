@@ -334,7 +334,7 @@ I have asked friends and family to use the sites functionality with no reports o
 
 ### Bugs/Issues
 
-Footer was being pulled into header tag. As I used styling from the base.html across all pages the main bulk of content was included in the header to keep the site consistent. The block content function was not registering the closing header tag so the footer was floating underneath the page content rather then sticking to the bottom of the page. I added a closing header tag to each page in order to keep the footer in place
+Footer was being pulled into header tag. As I used styling from the base.html across all pages the main bulk of content was included in the header to keep the site consistent. The block content function was not registering the closing header tag so the footer was floating underneath the page content rather then sticking to the bottom of the page. I vaidated my code a seen I was missing closing functions on my base.html. Adding these rectified the footer problem however I was left with extra closing tags on my index.html.
 
 I originally wanted to assign each event type a particular image so once the user had selected their event, on their event page it would generate the image on the html card. Discussing this with my mentor he advised this could become repetitive seeing the same images. Allowing the user to select their own image adds more choice to the customer while making it more personal to them.
 
