@@ -400,19 +400,13 @@ See the following steps to deploy below:
 
 1. Login to Heroku and Create a New App.
 
-<img src="assets/readme_images/heroku_deployment_1.png" height="120px"> 
-
 2. Give the App a name, it must be unique, and select a region. 
-
-<img src="assets/readme_images/heroku_deployment_2.png" height="180px"> 
 
 3. Click on 'Create App'. This will take you to a page where you can deploy your project. 
 
 4. Next, click on the 'Resources' tab and search for 'Heroku Postgres' in the Add-ons section to add the Heroku Postgres database to the project. 
 
 5. Click on the 'Settings' tab at the top of the page. The following steps must be completed before deployment.
-
-<img src="assets/readme_images/heroku_deployment_3.png" height="180px"> 
 
 6. Scroll down to Config Vars (also known as Environment Variables) and click 'Reveal Config Vars'. Here the database URL is stored, it is the connection to the database, so this must be copied and stored within env.py file within the same directory as the manage.py file. 
 
@@ -456,15 +450,9 @@ web: gunicorn foody_family.wsgi
 Web tells Heroku to allow web traffic, whilst gunicorn is the server installed earlier, a web services gateway interface server (wsgi). This is a standard that allows Python services to integrate with web servers.
 
 
-19. Now, go to the 'Deploy' section on Heroku. Find the 'Deployment Method' section and choose GitHub. Then, connected to the relevant GitHub Repository by searching the repository name and clicking 'Connect'.
-
-<img src="assets/readme_images/heroku_deployment_6.png" height="120px"> 
-
-<img src="assets/readme_images/heroku_deployment_6a.png" width="800px"> 
+19. Now, go to the 'Deploy' section on Heroku. Find the 'Deployment Method' section and choose GitHub. Then, connected to the relevant GitHub Repository by searching the repository name and clicking 'Connect'. 
 
 20. Scroll down to the Automatic and Manual Deploys sections. I then clicked 'Deploy Branch' in the Manual Deploy section and waited as Heroku installed all dependencies and deployed my code. 
-
-<img src="assets/readme_images/heroku_deployment_7.png" height="180px"> 
 
 21. Once the project is finished deploying, click 'view' to see the newly deployed project. 
 
