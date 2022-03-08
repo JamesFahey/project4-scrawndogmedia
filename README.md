@@ -254,10 +254,30 @@ On the homepage there will be a section for portfolios. Here the site owner can 
 
 #### Registering
 
-To test the sign up function I tried to sign up without completing the required field. All gave the below message
+To test the sign up function I tried to sign up without completing the required field. All gave the below message. I also attempted to sign up without meeting the password requirements, this also failed
 
-<img src="assets/readme_imgs/testing/signup.png" width="50%">
+<img src="assets/readme_imgs/testing/Signup.png" width="50%">
 
 Once all required fields are completed sign up will be complete and you will have registered for an account
 
-<img src="assets/readme_imgs/testing/signup_complete.png" width="50%">
+<img src="assets/readme_imgs/testing/Signup_complete.png" width="50%">
+
+#### Log in
+
+For log in testing, I attempted to sign in without completing the fields. I also tried logging in with an incorrect username and incorrect password
+
+<img src="assets/readme_imgs/testing/Signin.png" width="50%">
+
+<img src="assets/readme_imgs/testing/Signin_password.png" width="50%">
+
+#### Log out
+
+<img src="assets/readme_imgs/testing/Signout" width="50%">
+
+### Sign in/Register and log out messages
+
+Once a user has either logged in, logged out or registered they should receive a success message
+
+<img src="assets/readme_imgs/testing/Succesful_signin" width="50%">
+
+<img src="assets/readme_imgs/testing/Succesful_signout" width="50%">
