@@ -135,3 +135,45 @@ If the user decides to delete an event, they will be directed to a page to confi
 Registered users will be able to view the current months calendar in order to see which dates are available
 
 <img src="assets/readme_imgs/features/calendar.png" width="50%">
+
+# Site Design
+
+For the site I used a boostrap template from startbootstrap.com called creative. I have updated images and colours to fit the style of the brand
+
+### Fonts
+
+I chose not to update the fonts used by the template as I felt it worked well with the brand design.
+
+The primary font used was Merriweather
+
+### Colour scheme
+
+The colour scheme has been chosen to complement the predominant colour of the logo. With the logo colour being a dark shade of purple, I used google to find further colours to use for the site
+
+- color: # 351c44| This is the colour of the site logo and has been used for sections of the home page, ‘At your service’ text, submit buttons throughout the site, social links
+- color: # 9CAF88| Hover effects offer a good contrast to the primary colour of the logo.
+- color: # fffff| white has been used for large portions of text as it offers good contrast to the background image and colour scheme
+- color: # b69426| used for the hover effect on the navigation links
+
+### Balsamiq Wireframes
+
+  <hr>
+
+  #### PC Wireframes
+  
+   * [Desktop](assets/readme_imgs/wireframes/desktop/)
+
+   * [Mobile](assets/readme_imgs/wireframes/mobile/)
+
+### Structure
+
+I have kept the structure simple and clean to not overload the customer. The homepage contains information the promote the business and highlight the owners previous work. 
+The website focuses on a booking app for events.
+
+All visitors to the site can view brand information and portfolios however a user must register/login to have access to:
+
+- Book Event
+- Your events
+- Calendar
+- Edit Event
+- Delete Event
