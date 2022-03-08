@@ -338,6 +338,8 @@ Footer was being pulled into header tag. As I used styling from the base.html ac
 
 I originally wanted to assign each event type a particular image so once the user had selected their event, on their event page it would generate the image on the html card. Discussing this with my mentor he advised this could become repetitive seeing the same images. Allowing the user to select their own image adds more choice to the customer while making it more personal to them.
 
+When signing up for an account if the user completed the optional email field they would get a server error 500. This was due to the backend unable to access or deal with the email. I added the code “EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'” taken from stackoverflow and it resolved the issue. 
+
 ### Features to be implemented
 
 ### Payment method
@@ -347,3 +349,128 @@ The next implementation for the site would be a payment method for the bookings.
 ### Add and create further portfolios
 
 Currently Scrawndog Media is a starter company and is in the process of taking their first bookings. This resulted in not a lot of material for the site hence why on the portfolio section I have had to use placeholder images. Once these bookings have been completed the source material can be added to the site.
+
+### Email confirmation
+
+I would like to add an email confirmation for sign up and booking. Once the user has either registered for an account or booked event they will received an email from the site confirming their actions.
+
+# Technologies Used
+
+### Coding Languages
+
+- HTML5 - Site structure.
+- CSS3 - Site Design.
+- Python3 - Used with Django.
+
+### Libraries, Frameworks & Tools
+
+- Django - Framework used to build the site and admin page.
+- HerokuSQL - Database used in the project.
+- Python OS - Used for os.environ to help with automated development DEBUG
+- Markdown - Used for creating README.md document.
+- Bootstrap 5 - Used for styling the site a framework addition to CSS3.
+
+### Hosting Technologies
+
+- Heroku - Deployment and hosting environment.
+- Cloudinary - Storing images and static files.
+- Github - Hosting Repository code.
+
+### Testing Technologies
+
+- Nu Html Checker - Validate HTML
+- W3C CSS3 - Validate CSS
+- PEP8 - Validate python code
+
+# Code Validation
+
+- The HTML templates were validated using W3 Validator. No errors were returned for the html segments.
+
+- The CSS style sheet was validated using W3C Validator, no errors were returned.
+
+- The JavaScript files were run through JSHint. Received the following warning message - 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz). This is a warning that browsers implementing versions of JS prior to es6 won't understand const. I added / jshint esversion 6 / to the top of my JS pages to let jshint know that the minimum language version I am targeting is es6.
+
+- The code was validated using PEP8. No errors were returned.
+
+# Deployment
+
+This project was deployed using Heroku. Some of the steps in this deployment process are used to get the bare minimum of this project up and running prior to adding functionality. 
+
+See the following steps to deploy below:
+
+1. Login to Heroku and Create a New App.
+
+<img src="assets/readme_images/heroku_deployment_1.png" height="120px"> 
+
+2. Give the App a name, it must be unique, and select a region. 
+
+<img src="assets/readme_images/heroku_deployment_2.png" height="180px"> 
+
+3. Click on 'Create App'. This will take you to a page where you can deploy your project. 
+
+4. Next, click on the 'Resources' tab and search for 'Heroku Postgres' in the Add-ons section to add the Heroku Postgres database to the project. 
+
+5. Click on the 'Settings' tab at the top of the page. The following steps must be completed before deployment.
+
+<img src="assets/readme_images/heroku_deployment_3.png" height="180px"> 
+
+6. Scroll down to Config Vars (also known as Environment Variables) and click 'Reveal Config Vars'. Here the database URL is stored, it is the connection to the database, so this must be copied and stored within env.py file within the same directory as the manage.py file. 
+
+The env.py files is where the projects secret environment variables are stored. This file is then added to a gitnore file so it isn't stored publicly within the projects repository.  
+
+7. Next, the secret key needs to be created within the projects env.py file on GitPod and then added to the Config Vars on Heroku. Once added, go to the settings.py file on GitPod.
+
+8. Within the settings.py file you need to import os, import dj_database_url and then write an if statement to import the env.py file in production to avoid an error. 
+
+9. Then, we need to replace the current insecure secret key with **os.environ.get('SECRET_KEY')**, that we set within the env.py file. 
+
+10. Once the secret key is replaced, scroll down to DATABASES to connect to the Postgres database. Comment out the current code and add the following python dictionary:
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+}
+
+11. The next step is to connect the project to Cloudinary, which is where the media files will be stored. Log into Cloudinary and copy the API environment variable. This needs to be added to the Config Vars on Heroku and to the projects env.py file, removing the 'CLOUDINARY_URL = ' from the beginning of the copied API link. 
+
+12. Then on Heroku add to the Config Vars, DISABLE_COLLECTSTATIC = 1, as a temporary measure to enable deployment without any static files, this will be removed when it is time to deploy the full project.
+
+
+13. Back onto GitPod, the cloudinary libraries installed now need to be added to the list of installed apps within the settings.py file - 'cloudinary_storage' and 'cloudinary'
+
+14. Next we need to tell Django to use Cloudinary to store our media and static files. Toward the end of our settings.py  file we can add:
+
+- STATIC_URL = '/static/'
+- STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+- STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+- STATIC_ROOT = os.path.join(BASE_DIR, 'staticfile')
+- MEDIA_URL = '/media/'
+- DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+15. Then we need to tell Django where the templates will be stored. At the top of settings.py, under BASE_DIR (the base directory), add a templates directory and then scroll down to TEMPLATES and add the templates directory variable to 'DIRS': []. 
+
+16. Next, create the three above directories, media, static and templates, on the top level with the manage.py file. 
+
+17. Now add our Heroku host name into allowed hosts in our settings.py file, APP_NAME.herokuapp.com, and then also add 'localhost' so the app can also run locally.
+
+18. Finally, to complete the first deployment set up of the skeleton app, create a Procfile so that Heroku knows how to run the project. Within this file add the following:
+web: gunicorn foody_family.wsgi
+Web tells Heroku to allow web traffic, whilst gunicorn is the server installed earlier, a web services gateway interface server (wsgi). This is a standard that allows Python services to integrate with web servers.
+
+
+19. Now, go to the 'Deploy' section on Heroku. Find the 'Deployment Method' section and choose GitHub. Then, connected to the relevant GitHub Repository by searching the repository name and clicking 'Connect'.
+
+<img src="assets/readme_images/heroku_deployment_6.png" height="120px"> 
+
+<img src="assets/readme_images/heroku_deployment_6a.png" width="800px"> 
+
+20. Scroll down to the Automatic and Manual Deploys sections. I then clicked 'Deploy Branch' in the Manual Deploy section and waited as Heroku installed all dependencies and deployed my code. 
+
+<img src="assets/readme_images/heroku_deployment_7.png" height="180px"> 
+
+21. Once the project is finished deploying, click 'view' to see the newly deployed project. 
+
+22. Before deploying the final draft of your project you must: 
+- Remove staticcollect=1 from congifvars within Heroku 
+- Ensure DEBUG is set to false in settings.py file or:
+    - Set DEBUG to development with: *development = os.environ.get('DEVELOPMENT', False)* above it.
+
+23. To deploy re-do steps 19 - 21, minus reconnecting your GitHub account as it should still be connected to your App. 
