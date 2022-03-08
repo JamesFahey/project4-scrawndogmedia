@@ -71,8 +71,9 @@ class CancelBooking(SuccessMessageMixin, DeleteView):
     success_message = "You have successfully cancelled your booking"
     success_url = reverse_lazy('event_page')
 
-
     """View to create a calendar"""
+
+
 def event_calendar(request, year=datetime.now().year,
                    month=datetime.now().strftime('%B')):
     name = "James"

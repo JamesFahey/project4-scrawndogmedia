@@ -1,6 +1,7 @@
 from django.test import TestCase, Client
 from django.urls import reverse, resolve
-from .views import home, BookingList, BookingDetails, AddBooking, UpdateBooking, CancelBooking, event_calendar
+from .views import home, BookingList, BookingDetails, AddBooking
+from .views import UpdateBooking, CancelBooking, event_calendar
 
 
 # Create your tests here.
@@ -42,17 +43,3 @@ class TestUrls(TestCase):
         url = reverse('calendar')
         print(resolve(url))
         self.assertEquals(resolve(url).func, event_calendar)
-
-
-
-# class TestViews(TestCase):
-
-#     def test_booking_list_GET(self):
-#         client = Client()
-#         response = client.get(reverse('event_page'))
-#         self.user = User.objects.create_user(
-#             username='jacob', email='jacob@gmail.com', password='top_secret')
-
-#         request.user = self.user
-#         self.assertEquals(response.status_code, 200)
-#         self.assertTemplateUsed(response, 'event_page.html')
