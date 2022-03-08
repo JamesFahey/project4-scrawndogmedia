@@ -1,9 +1,9 @@
 <h1 align="center">Scrawndog Media</h1>
 
-### **Live Site**
+### **Repository**
 [Scrawndog Media Repository](https://github.com/JamesFahey/project4-scrawndogmedia)
 
-### **Repository:**
+### **Live site:**
 [Scrawndog Media Site](https://scrawndogmedia.herokuapp.com/)
 
 # About
@@ -334,7 +334,7 @@ I have asked friends and family to use the sites functionality with no reports o
 
 ### Bugs/Issues
 
-Footer was being pulled into header tag. As I used styling from the base.html across all pages the main bulk of content was included in the header to keep the site consistent. The block content function was not registering the closing header tag so the footer was floating underneath the page content rather then sticking to the bottom of the page. I vaidated my code a seen I was missing closing functions on my base.html. Adding these rectified the footer problem however I was left with extra closing tags on my index.html.
+Footer was being pulled into header tag. As I used styling from the base.html across all pages the main bulk of content was included in the header to keep the site consistent. The block content function was not registering the closing header tag so the footer was floating underneath the page content rather then sticking to the bottom of the page. I vaidated my code a seen I was missing closing functions adding these rectified the footer problem.
 
 I originally wanted to assign each event type a particular image so once the user had selected their event, on their event page it would generate the image on the html card. Discussing this with my mentor he advised this could become repetitive seeing the same images. Allowing the user to select their own image adds more choice to the customer while making it more personal to them.
 
@@ -384,7 +384,7 @@ I would like to add an email confirmation for sign up and booking. Once the user
 
 # Code Validation
 
-- The HTML templates were validated using W3 Validator. No errors were returned for the html segments. However there was some errors from the django functions, ie forms and calendar which could not be helped
+- The HTML templates were validated using W3 Validator. No errors were returned for the html segments. However there was some errors from the django functions, ie the calendar calendar which could not be helped
 
 - The CSS style sheet was validated using W3C Validator, no errors were returned.
 
@@ -462,3 +462,31 @@ Web tells Heroku to allow web traffic, whilst gunicorn is the server installed e
     - Set DEBUG to development with: *development = os.environ.get('DEVELOPMENT', False)* above it.
 
 23. To deploy re-do steps 19 - 21, minus reconnecting your GitHub account as it should still be connected to your App. 
+
+# Credits
+
+### Media
+
+- Landing page was taken from google images and uploaded to Cloudinary to use on my site
+
+- Site logo was designed by business owner Hayley Emmerson
+
+### Acknowledgment
+
+- Stack Overflow.- Stack Overflow helped me debug my application on several occasions.
+
+- Code Institute.- For giving a strong template to work from and add own ideas
+
+- Balsamiq.- Wireframes for this project.
+
+- My mentor Ade has helped me improve the sites style and pushed me to add as much content as possible
+
+- Fontawesome.- used for social link icons.
+
+- Start bootstrap – there theme was used for the site
+
+- Codemy – These videos were a constant help throughout the project
+
+- Friends and family for keeping me motivated and allowing me the time to fully commit to the project
+
+- Hayley Emmerson for trusted me to design her a suitable website
