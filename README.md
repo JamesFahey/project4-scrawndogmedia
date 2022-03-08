@@ -272,12 +272,58 @@ For log in testing, I attempted to sign in without completing the fields. I also
 
 #### Log out
 
-<img src="assets/readme_imgs/testing/Signout" width="50%">
+<img src="assets/readme_imgs/testing/Signout.png" width="50%">
 
 ### Sign in/Register and log out messages
 
 Once a user has either logged in, logged out or registered they should receive a success message
 
-<img src="assets/readme_imgs/testing/Succesful_signin" width="50%">
+<img src="assets/readme_imgs/testing/Succesful_signin.png" width="50%">
 
-<img src="assets/readme_imgs/testing/Succesful_signout" width="50%">
+<img src="assets/readme_imgs/testing/Succesful_signout.png" width="50%">
+
+### Booking Form
+
+To test the booking form again I tried to complete the form without completing all fields. The text box is optional so not required to complete form
+
+<img src="assets/readme_imgs/testing/booking_form.png" width="50%">
+
+<img src="assets/readme_imgs/testing/completed_booking_form.png" width="50%">
+
+If the form was completed successfully you will be redirected to the events page and your booking added awaiting confirmation
+
+<img src="assets/readme_imgs/testing/Succesful_booking.png" width="50%">
+
+### Edit Form
+
+To test the booking form I altered one of the prepopulated columns 
+
+<img src="assets/readme_imgs/testing/edit_form.png" width="50%">
+
+<img src="assets/readme_imgs/testing/Succesful_edit_booking.png" width="50%">
+
+### Delete booking
+
+Testing to see if you get prompted before deleting a post
+
+<img src="assets/readme_imgs/testing/delete_booking.png" width="50%">
+
+### Admin
+
+First I tried to access the admin page while still logged in as another user
+
+<img src="assets/readme_imgs/admin_auth.png" width="50%">
+
+Once logged in as admin I filtered for the booking we created during testing
+
+<img src="assets/readme_imgs/admin_requested_event.png" width="50%">
+
+I then updated of the status from requested to confirmed
+
+<img src="assets/readme_imgs/admin_update_status.png" width="50%">
+
+<img src="assets/readme_imgs/admin_confirmed.png" width="50%">
+
+I also signed back into the account used for testing to see if the status had been updated on the site
+
+<img src="assets/readme_imgs/confirmed_booking.png" width="50%">
