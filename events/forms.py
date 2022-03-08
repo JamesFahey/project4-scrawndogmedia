@@ -1,21 +1,9 @@
-from .models import Event, Booking, Edit
+from .models import Booking
 from django import forms
 
 
-# EventType = (
-#     ("WEDDING", "Wedding"),
-#     ("CHRISTENING", "Christening"),
-#     ("OTHER", "Other"),
-# )
-
-# class BookingForm(forms.Form):
-#     name = forms.CharField(label="Full Name", max_length=100)
-#     email = forms.EmailField(label="Email")
-#     event_type = forms.ChoiceField(choices=EventType)
-#     event_date = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
-#     info = forms.CharField(label="Please tell us as much as you can about your day", max_length=500)
-
 class BookingForm(forms.ModelForm):
+    """Form to make a booking"""
     class Meta:
         model = Booking
         fields = ('user',
@@ -38,6 +26,7 @@ class BookingForm(forms.ModelForm):
 
 
 class EditForm(forms.ModelForm):
+    """Form to edit a booking"""
     class Meta:
         model = Booking
         fields = ('name',

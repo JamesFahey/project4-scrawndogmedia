@@ -27,13 +27,11 @@ urlpatterns = [
     path('booking_details/<int:pk>',
          views.BookingDetails.as_view(), name='booking_details'),
     path('book_event/', views.AddBooking.as_view(), name='Book Event'),
-    # path('book_event/event_page/', views.BookingList.as_view(), name='event_page'),
     path('accounts/', include('allauth.urls')),
     path('booking_details/edit/<int:pk>',
          views.UpdateBooking.as_view(), name='edit_event'),
     path('booking_details/<int:pk>/cancel',
          views.CancelBooking.as_view(), name='cancel_event'),
-    # path('edit_event/<int:pk>/event_page/', views.BookingList.as_view(), name='event_page'),
     path("calendar/", views.event_calendar, name="calendar"),
     path("<int:year>/<str:month>/", views.event_calendar, name="calendar"),
 ]

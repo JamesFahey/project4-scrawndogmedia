@@ -8,7 +8,6 @@ import calendar
 from calendar import HTMLCalendar
 from datetime import datetime
 from django.contrib.messages.views import SuccessMessageMixin
-from django.core.mail import send_mail
 from django.shortcuts import render
 from django.views.generic import ListView, CreateView, UpdateView, DetailView
 from django.views.generic import DeleteView
@@ -20,33 +19,29 @@ def home(request):
 
 
 class BookingList(ListView):
+    """View to list all bookings"""
     model = Booking
-    # queryset = Booking.objects.order_by("event_date")
     template_name = "event_page.html"
 
+    """function to only show user bookings"""
     def get_queryset(self):
         return Booking.objects.filter(user=self.request.user)
 
 
 class BookingDetails(DetailView):
+    """View to show a booking in more detail"""
     model = Booking
     template_name = "booking_details.html"
 
 
 class AddBooking(SuccessMessageMixin, CreateView):
+    """View to create a booking """
     model = Booking
     form_class = BookingForm
     template_name = "book_event.html"
     success_message = ("Thank you for your booking! Someone will be in" +
                        "contact soon to discuss further arrangements" +
                        " and payment")
-    # fields = ['user',
-    #         'name',
-    #         'email',
-    #         'event_type',
-    #         'event_date',
-    #         'info',
-    # ]
     widgets = {
             'event_date': forms.DateInput(format=('%m/%d/%Y'),
                                           attrs={'class': 'form-control',
@@ -55,58 +50,12 @@ class AddBooking(SuccessMessageMixin, CreateView):
     }
 
 
-# def book(request):
-#     if request.method == "POST":
-#         user = request.user
-#         form = BookingForm(request.POST)
-
-#         if form.is_valid():
-#             name = form.cleaned_data["name"]
-#             email = form.cleaned_data["email"]
-#             event_type = form.cleaned_data["event_type"]
-#             event_date = form.cleaned_data["event_date"]
-#             info = form.cleaned_data["info"]
-#             booking = Booking(name=name, email=email, event_type=event_type, event_date=event_date, info=info, user=user)
-#             booking.save()
-
-#         return HttpResponseRedirect('event_page/')
-
-#     else:
-#         form = BookingForm()
-#     return render(request, "book_event.html", {"form":form}) 
-
-# def edit(request):
-#     if request.method == "POST":
-#         user = request.user
-#         form = EditForm(request.POST, instance=request.user)
-
-#         if form.is_valid():
-#             name = form.cleaned_data["name"]
-#             email = form.cleaned_data["email"]
-#             event_type = form.cleaned_data["event_type"]
-#             event_date = form.cleaned_data["event_date"]
-#             info = form.cleaned_data["info"]
-#             booking = Booking(name=name, email=email, event_type=event_type, event_date=event_date, info=info, user=user)
-#             booking.save()
-
-#         return HttpResponseRedirect('event_page/')
-
-#     else:
-#         form = EditForm()
-#     return render(request, "edit_event.html", {"form":form})
-
 class UpdateBooking(SuccessMessageMixin, UpdateView):
+    """View to update a booking """
     model = Booking
     form_class = EditForm
     template_name = "edit_event.html"
     success_message = "You have successfully edited your booking"
-    # fields = [
-    #     'name',
-    #     'email',
-    #     'event_type',
-    #     'event_date',
-    #     'info',
-    # ]
     widgets = {
             'event_date': forms.DateInput(format=('%m/%d/%Y'),
                                           attrs={'class': 'form-control',
@@ -116,31 +65,14 @@ class UpdateBooking(SuccessMessageMixin, UpdateView):
 
 
 class CancelBooking(SuccessMessageMixin, DeleteView):
+    """View to cancel a booking """
     model = Booking
     template_name = "cancel_event.html"
     success_message = "You have successfully cancelled your booking"
     success_url = reverse_lazy('event_page')
 
 
-def contact(request):
-    if request.method == "POST":
-        message_name = request.POST.get('message_name')
-        message_email = request.POST.get('message_email')
-        # phone = request.POST['phone']
-        message = request.POST.get('message')
-        send_mail(
-            message_name,
-            settings.EMAIL_HOST_USER,
-            message,
-            [message_email],
-        )
-
-        return render(request, 'home', {'name': message_name})
-
-    else:
-        return render(request, 'home', {})
-
-
+    """View to create a calendar"""
 def event_calendar(request, year=datetime.now().year,
                    month=datetime.now().strftime('%B')):
     name = "James"
@@ -151,6 +83,7 @@ def event_calendar(request, year=datetime.now().year,
         year,
         month_number)
 
+    """function to add confirmed bookings to the calendar"""
     event_list = Booking.objects.filter(
         event_date__year=year,
         event_date__month=month_number,

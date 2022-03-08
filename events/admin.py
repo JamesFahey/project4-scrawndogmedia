@@ -1,5 +1,4 @@
 from django.contrib import admin
-from .models import Event
 from .models import Booking
 from django_summernote.admin import SummernoteModelAdmin
 
@@ -11,7 +10,6 @@ class BookingAdmin(SummernoteModelAdmin):
                     'created_on', 'event_date')
     search_fields = ['name', 'event_type', 'created_on']
     list_filter = ('status', 'created_on', 'event_date')
-    # summernote_fields = ('info')
     actions = ['update_status']
 
     def update_status(self, request, queryset):
